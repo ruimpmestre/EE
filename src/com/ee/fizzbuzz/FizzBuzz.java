@@ -29,12 +29,17 @@ public class FizzBuzz {
 	}
 
 	public static String luckyFizzBuzz(int i) {
-		return "";
+		String output = (String.valueOf(i).contains("3")) ? LUCKY : fizzBuzz(i);
+		return output;
 	}
 
 
-	public static String continuousLuckyFizzBuzz(int mix, int max) {
-		return "";
+	public static String continuousLuckyFizzBuzz(int min, int max) {
+		StringBuilder result = new StringBuilder();
+		for(int i = min; i<=max; ++i) {
+			result.append(luckyFizzBuzz(i)).append(" ");
+		}
+		return result.toString();
 	}
 
 	
