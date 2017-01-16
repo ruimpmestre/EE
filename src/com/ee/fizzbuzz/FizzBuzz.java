@@ -6,6 +6,7 @@ public class FizzBuzz {
 	public static String FIZZ = "fizz";
 	public static String BUZZ = "buzz";
 	public static String FIZZBUZZ = "fizzbuzz";
+	public static final String LUCKY = "lucky";
 
 	public static String fizzBuzz(int i) {
 		if(i%15==0) {
@@ -27,7 +28,17 @@ public class FizzBuzz {
 		return result.toString();
 	}
 
+	public static String luckyFizzBuzz(int i) {
+		return "";
+	}
+
+
+	public static String continuousLuckyFizzBuzz(int mix, int max) {
+		return "";
+	}
+
+	
 	public static void main(String[] args) {
-		System.out.println(FizzBuzz.continuousFizzBuzz(1,20));
+		System.out.println(FizzBuzz.continuousLuckyFizzBuzz(1,20));
 	}
 }

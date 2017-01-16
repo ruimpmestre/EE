@@ -65,6 +65,46 @@ public class FizzBuzzTests {
                    FizzBuzz.continuousFizzBuzz(15,15).trim());
     }
 
+    @Test
+    public void luckyFizzBuzzTests() {
+
+      assertEquals("luckyfizzBuzz(1)", FizzBuzz.fizzBuzz(1), FizzBuzz.luckyFizzBuzz(1));
+      assertEquals("luckyfizzBuzz(2)", FizzBuzz.fizzBuzz(2), FizzBuzz.luckyFizzBuzz(2));
+      assertEquals("luckyfizzBuzz(3)", FizzBuzz.LUCKY, FizzBuzz.luckyFizzBuzz(3));
+      assertEquals("luckyfizzBuzz(4)", FizzBuzz.fizzBuzz(4), FizzBuzz.luckyFizzBuzz(4));
+      assertEquals("luckyfizzBuzz(5)", FizzBuzz.fizzBuzz(5), FizzBuzz.luckyFizzBuzz(5));
+      assertEquals("luckyfizzBuzz(15)", FizzBuzz.fizzBuzz(15), FizzBuzz.luckyFizzBuzz(15));
+      assertEquals("luckyfizzBuzz(13)", FizzBuzz.LUCKY, FizzBuzz.luckyFizzBuzz(13));
+      assertEquals("luckyfizzBuzz(30)", FizzBuzz.LUCKY, FizzBuzz.luckyFizzBuzz(30));
+      assertEquals("luckyfizzBuzz(301)", FizzBuzz.LUCKY, FizzBuzz.luckyFizzBuzz(301));
+      assertEquals("luckyfizzBuzz(303)", FizzBuzz.LUCKY, FizzBuzz.luckyFizzBuzz(303));
+      assertEquals("luckyfizzBuzz(-31)", FizzBuzz.LUCKY, FizzBuzz.luckyFizzBuzz(-31));
+    }
+
+                          
+    
+    @Test
+    public void continuousLuckyFizzBuzzTests() {
+      assertEquals("continuousLuckyFizzBuzz(1,20)", 
+                    "1 2 lucky 4 buzz fizz 7 8 fizz buzz 11 fizz lucky 14 fizzbuzz 16 17 fizz 19 buzz ", 
+                   FizzBuzz.continuousLuckyFizzBuzz(1,20));
+      assertEquals("continuousLuckyFizzBuzz(1,1)",
+                    FizzBuzz.luckyFizzBuzz(1),
+                   FizzBuzz.continuousLuckyFizzBuzz(1,1).trim());
+      assertEquals("continuousLuckyFizzBuzz(1,0)",
+                    "",
+                   FizzBuzz.continuousLuckyFizzBuzz(1,0));
+      assertEquals("continuousLuckyFizzBuzz(3,3)",
+                    FizzBuzz.luckyFizzBuzz(3),
+                   FizzBuzz.continuousLuckyFizzBuzz(3,3).trim());
+      assertEquals("continuousLuckyFizzBuzz(5,5)",
+                    FizzBuzz.luckyFizzBuzz(5),
+                   FizzBuzz.continuousLuckyFizzBuzz(5,5).trim());
+      assertEquals("continuousLuckyFizzBuzz(15,15)",
+                    FizzBuzz.luckyFizzBuzz(15),
+                   FizzBuzz.continuousLuckyFizzBuzz(15,15).trim());
+    }
+
   
   public static void main(String[] args) {
     Result result = JUnitCore.runClasses(FizzBuzzTests.class);
