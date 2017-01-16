@@ -1,15 +1,86 @@
 package com.ee.fizzbuzz.tests;
 
 import static org.junit.Assert.assertEquals;
+
+import java.util.Arrays;
+import java.util.Collection;
+
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
+import org.junit.runner.RunWith;
 import org.junit.runner.notification.Failure;
-
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameter;
+import org.junit.runners.Parameterized.Parameters;
 import org.junit.Test;
+
 import com.ee.fizzbuzz.FizzBuzz;
 
   
+@RunWith(Parameterized.class)
 public class FizzBuzzTests {
+  
+  @Parameter
+  public int input;
+
+  @Parameter(value = 1)
+  public String expected;
+  
+  
+  // creates the test data
+  @Parameters(name= "{index}: report[1,{0}]={1}")
+  public static Collection<Object[]> data() {
+      Object[][] data = 
+        new Object[][] { { 20 , 
+                          "fizz: 4 buzz: 3 fizzbuzz: 1 lucky: 2 integer: 10 "},
+                        { 1 , 
+                          "fizz: 0 buzz: 0 fizzbuzz: 0 lucky: 0 integer: 1 "},
+                        { 4 , 
+                          "fizz: 0 buzz: 0 fizzbuzz: 0 lucky: 1 integer: 3 "}
+                          };
+      return Arrays.asList(data);
+  }
+
+  
+  @Test
+  public void reportTests() {
+    FizzBuzz.continuousLuckyFizzBuzz(1,input);
+    assertEquals("continuousLuckyFizzBuzz", expected, FizzBuzz.getReport());   
+  }
+
+  
+  @Test
+  public void counterTests() {
+    // assert statements
+    FizzBuzz.luckyFizzBuzz(3);
+    FizzBuzz.luckyFizzBuzz(13);
+    FizzBuzz.luckyFizzBuzz(-32);
+    assertEquals("report - " + FizzBuzz.LUCKY, 
+                  3, FizzBuzz.getReportCounter(FizzBuzz.LUCKY));
+    
+    FizzBuzz.luckyFizzBuzz(15);
+    FizzBuzz.luckyFizzBuzz(30);
+    FizzBuzz.luckyFizzBuzz(45);
+    FizzBuzz.luckyFizzBuzz(0);
+
+    assertEquals("report - " + FizzBuzz.FIZZBUZZ, 
+                 3 , FizzBuzz.getReportCounter(FizzBuzz.FIZZBUZZ));
+    
+    FizzBuzz.luckyFizzBuzz(6);
+    FizzBuzz.luckyFizzBuzz(9);
+    FizzBuzz.luckyFizzBuzz(12);
+    FizzBuzz.luckyFizzBuzz(15);
+    FizzBuzz.luckyFizzBuzz(18);
+    
+    assertEquals("report - " + FizzBuzz.FIZZ, 
+                 4, FizzBuzz.getReportCounter(FizzBuzz.FIZZ));   
+    
+    FizzBuzz.luckyFizzBuzz(5);
+
+    assertEquals("report - " + FizzBuzz.BUZZ, 
+                 1, FizzBuzz.getReportCounter(FizzBuzz.BUZZ));   
+
+  }
     
     @Test
     public void fizzBuzzTests() {

@@ -42,6 +42,14 @@ public class FizzBuzz {
 		return result.toString();
 	}
 
+	public static String getReport() {
+		return "";
+	}
+
+	public static int getReportCounter(String key) {
+		return -1;
+	}
+
 	
 	public static void main(String[] args) {
 		System.out.println(FizzBuzz.continuousLuckyFizzBuzz(1,20));
