@@ -12,6 +12,7 @@ import org.junit.runner.notification.Failure;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
+import org.junit.Before;
 import org.junit.Test;
 
 import com.ee.fizzbuzz.FizzBuzz;
@@ -39,6 +40,12 @@ public class FizzBuzzTests {
                           "fizz: 0 buzz: 0 fizzbuzz: 0 lucky: 1 integer: 3 "}
                           };
       return Arrays.asList(data);
+  }
+
+
+  @Before
+  public void resetCounters() {
+    FizzBuzz.resetCounters();
   }
 
   
