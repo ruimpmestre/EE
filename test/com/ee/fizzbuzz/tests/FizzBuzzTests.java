@@ -87,6 +87,9 @@ public class FizzBuzzTests {
     assertEquals("report - " + FizzBuzz.BUZZ, 
                  1, FizzBuzz.getReportCounter(FizzBuzz.BUZZ));   
 
+    
+    assertEquals("report - " + FizzBuzz.INTEGER, 
+            0, FizzBuzz.getReportCounter(FizzBuzz.INTEGER));   
   }
     
     @Test
